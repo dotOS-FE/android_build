@@ -25,7 +25,7 @@ else
 $(call inherit-product-if-exists, frameworks/base/data/sounds/AudioPackage14.mk)
 endif
 
-ifeq ($(DOT_BUILD),)
+ifeq ($(DOTFE_BUILD),)
 # Additional settings used in all AOSP builds
 PRODUCT_PRODUCT_PROPERTIES += \
     ro.config.ringtone=Ring_Synth_04.ogg \
@@ -45,7 +45,7 @@ PRODUCT_PACKAGES += \
 
 # Telephony:
 #   Provide a APN configuration to GSI product
-ifeq ($(DOT_BUILD),)
+ifeq ($(DOTFE_BUILD),)
 PRODUCT_COPY_FILES += \
     device/sample/etc/apns-full-conf.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/apns-conf.xml
 endif

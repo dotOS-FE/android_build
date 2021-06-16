@@ -138,12 +138,12 @@ function check_product()
         echo "Couldn't locate the top of the tree.  Try setting TOP." >&2
         return
     fi
-    if (echo -n $1 | grep -q -e "^dot_") ; then
-        DOT_BUILD=$(echo -n $1 | sed -e 's/^dot_//g')
+    if (echo -n $1 | grep -q -e "^dotfe_") ; then
+        DOTFE_BUILD=$(echo -n $1 | sed -e 's/^dotfe_//g')
     else
-        DOT_BUILD=
+        DOTFE_BUILD=
     fi
-    export DOT_BUILD
+    export DOTFE_BUILD
 
         TARGET_PRODUCT=$1 \
         TARGET_BUILD_VARIANT= \
@@ -630,7 +630,7 @@ function lunch()
         print_lunch_menu
         tput setaf 2;
         tput bold;
-        echo -n "Go ahead and pick a number or enter lunch combo(dot_device-userdebug)... "
+        echo -n "Go ahead and pick a number or enter lunch combo(dotfe_device-userdebug)... "
         tput sgr0;
         read answer
     fi
@@ -684,13 +684,13 @@ function lunch()
         # if we can't find a product, try to grab it off the dotOS Devices GitHub
         T=$(gettop)
         cd $T > /dev/null
-        vendor/dot/build/tools/roomservice.py $product
+        vendor/dotfe/build/tools/roomservice.py $product
         cd - > /dev/null
         check_product $product
     else
         T=$(gettop)
         cd $T > /dev/null
-        vendor/dot/build/tools/roomservice.py $product true
+        vendor/dotfe/build/tools/roomservice.py $product true
         cd - > /dev/null
     fi
 
@@ -1671,7 +1671,7 @@ addcompletions
 
 function repopick() {
     T=$(gettop)
-    $T/vendor/dot/build/tools/repopick.py $@
+    $T/vendor/dotfe/build/tools/repopick.py $@
 }
 
 # check and set ccache path on envsetup
