@@ -1259,10 +1259,4 @@ DEFAULT_DATA_OUT_MODULES := ltp $(ltp_packages) $(kselftest_modules)
 # Include any vendor specific config.mk file
 -include vendor/*/build/core/config.mk
 
-# We modify several neverallows, so let the build proceed
-ifneq ($(TARGET_BUILD_VARIANT),user)
-SELINUX_IGNORE_NEVERALLOWS := true
-endif
-
 include $(BUILD_SYSTEM)/dumpvar.mk
-
