@@ -837,7 +837,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   script.Print("Device : {}".format(target_info.GetBuildProp("ro.product.system.model")))
   script.Print("DotOS version: {}".format(target_info.GetBuildProp("ro.modversion")))
   script.Print("Android version : {}".format(target_info.GetBuildProp("ro.build.version.release")))
-  script.Print("Build type: {}".format(target_info.GetBuildProp("ro.dot.releasetype")))
+  script.Print("Build type: {}".format(target_info.GetBuildProp("ro.dotfe.releasetype")))
   script.Print("Build fingerprint: {}".format(target_info.fingerprint))
   script.Print("Security patch : {}".format(target_info.GetBuildProp("ro.build.version.security_patch")))
   device_specific.FullOTA_InstallBegin()
